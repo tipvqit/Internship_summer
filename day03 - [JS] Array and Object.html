@@ -1,0 +1,303 @@
+<html>
+    <head>
+        <title>Day 3</title>
+    </head>
+    <body>
+    <!--
+        ........................................................................................................
+        ความแตกต่างระหว่าง Array และ Object 
+            อ้างอิง: https://www.w3schools.com/js/js_arrays.asp
+            ในภาษา Javascript 
+                - array จะใช้ตัวเลขในการอ้างอิงถึง (numbered indexes)
+                - objects จะใช้ชื่อในการอ้างอิงถึง (named indexes) 
+                note: arrays เป็น object ชนิดพิเศษที่มีดัชนีเป็นตัวเลข
+        ........................................................................................................
+
+        การใช้ Array และ Object 
+            อ้างอิง: https://www.w3schools.com/js/js_arrays.asp
+             ในภาษา Javascript 
+             - array เมื่อต้องการให้ชื่อ element เป็นตัวเลข
+             - object เมื่อต้องการให้ชื่อ element เป็นstring (text)
+        ........................................................................................................
+    -->
+    </body>
+
+    <script> 
+    /* 
+        // Array.isArray(obj) ตรวจสอบว่าเป็น array หรือไม่
+        ........................................................................................................
+        //typeof() จะใช้หาชนิดของตัวแปรใน JavaScript 
+            //return "string"
+            typeof ""                  
+            typeof "Color"        
+            typeof "Red House"
+            
+            //return "number"
+            typeof 0
+            typeof 1234
+            typeof 12.34
+            typeof (5)
+            typeof (2 + 5)
+            
+            //return "boolean"
+            typeof true                
+            typeof false 
+            
+            //return "object"
+            typeof [1,2,3,4]
+            typeof {name:'Tommy', age:20}
+            
+            //return "function" 
+            typeof function myFunc(){}   
+        ........................................................................................................
+        
+        //instanceof() จะใช้ตรวจสอบว่าเป็น Object หรือไม่ ถ้าใช่จะ returns true 
+            var color = ["Red", "Blue", "Green"];
+            color instanceof Array;          // Returns true
+            color instanceof Object;         // Returns true
+            color instanceof String;         // Returns false
+            color instanceof Number;         // Returns false
+        ........................................................................................................
+    
+        // ตรวจสอบ Array.isArray(), typeof(), instanceof()
+            var a1 = [1, 2, 3];
+            var a2 = {s1: "A", s2: "B", s3: "C"};
+            
+            //ตรวจสอบว่า a1,a2 เป็น array หรือไม่
+            console.log(Array.isArray(a1));     // return true
+            console.log(Array.isArray(a2));     // return flase
+            
+            //หาชนิดของตัวแปร
+            console.log(typeof a1);
+            console.log(typeof a2); 
+            
+            //ตรวจสอบว่า a1,a2 เป็น Object หรือไม่
+            console.log(a1 instanceof Function);    // returns false
+            console.log(a1 instanceof Object);      // returns true
+            console.log(a1 instanceof HTMLElement); // returns false
+            console.log(a1 instanceof Node);        // returns false
+            
+            console.log(a2 instanceof Function);    // returns false
+            console.log(a2 instanceof Object);      // returns true
+            console.log(a2 instanceof HTMLElement); // returns false
+            console.log(a2 instanceof Node);        // returns false
+        ........................................................................................................
+    */     
+
+    /* 
+        อธิบายและเปรียบเทียบ Array กับ Object
+        อ้างอิง:  http://www.ninenik.com/content.php?arti_id=341
+                http://www.ninenik.com/%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B9%81%E0%B8%9B%E0%B8%A3_array_%E0%B9%81%E0%B8%A5%E0%B8%B0_%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B9%81%E0%B8%9B%E0%B8%A3_object_%E0%B9%83%E0%B8%99_javascript_%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2-537.html
+            
+        กำหนดตัวแปร
+            //Array
+                var arr = [];  // วงเล็บปีกกาสี่เหลี่ยม หรือ วงเล็บก้ามปู
+            //Object
+                var obj = {};  // วงเล็บปีกกา
+        ........................................................................................................
+
+        สร้าง และใช้งาน 
+            //Array
+            // กำหนดตัวแปรสำหรับแต่ละตัว กรณีไม่ได้กำหนดเป็น แบบ array
+                var cars1 = "Toyota";
+                var cars2 = "Honda";
+                var cars3 = "Isuzu";
+            // การกำหนดแบบ array แบบที่ 1 กรณีทั่วไป
+                var cars = new Array(3); // 3 คือจำนวนค่าที่ต้องการกำหนด ในที่นี้ 3 รายการ
+                cars[0] = "Toyota";
+                cars[1] = "Honda";
+                cars[2] = "Isuzu";
+            // การกำหนดแบบ array แบบที่ 2 กรณีการกำหนดแบบย่อ
+                var cars = new Array("Toyota", "Honda", "Isuzu");
+            // การกำหนดแบบ array แบบที่ 3
+                var cars = ["Toyota", "Honda", "Isuzu"];
+
+            //Object
+            // รูปแบบการเขียนใช้ key: value
+                var person = {name:"bob", age:35, thai:false, talk:function(word){ return word;}}; 
+                //หรือ
+                person.name = "bob";  
+                person.age = 35;
+                person.thai = false;
+        ........................................................................................................
+
+        การเรียกใช้ค่า 
+            //Array
+                var cars = ["Toyota", "Honda", "Isuzu"];
+                cars[0];        // ตัวแปร array cars ตัวแรก ค่าที่ได้ คือ Toyota โดย index เริ่มต้นที่เลข 0 
+                cars[1];        // ตัวแปร array cars ตัวที่สอง ค่าที่ได้ คือ Honda โดย index เท่ากับ 1 
+            
+            //Object
+            // การเรียกใช้ค่า จะอยู่ในรูปแบบ ชื่อ object ตามด้วย .(จุด) ตามด้วย property เช่น ค่าของ age 
+                var person = {name:"bob", age:35, thai:false, talk:function(word){ return word;}};
+                person.age                      // ค่าที่ได้จะเท่ากับ 35
+                // หรือ
+                person["age"];
+
+                var thaiPeople = person.thai;   // กำหนดตัวแปร thaiPeople มารับค่า จาก object  person.thai
+                                                // ผลลัพธ์ค่า thaiPeople จะมีค่าเท่ากับ false
+        ........................................................................................................
+
+        การเรียกใช้ method
+            //Object
+                var person = {name:"bob", age:35, thai:false, talk:function(word){ return word;}};
+                person.talk();          // ค่าที่ได้จะเป็น undefied เพราะมีการคืนค่า word ออกมาด้วยคำสั่ง return word;
+                                        // แต่เราไม่ได้ส่งค่า ตัวแปรเข้าไป
+                // หรือ
+                person["talk"]();
+
+                // ลองใหม่
+                person.talk("Hello");   //ค่าที่ได้จะเท่ากับ Hello คือส่งค่าที่เราส่งเข้าไป กลับมาอีกที ด้วยคำสั่ง return word;
+        ........................................................................................................
+    */
+
+        /* Number */
+        var num0 = 10;  
+        var num1 = 10.1;
+        //---------------------------------------------------------------------------------
+
+        /* String */
+        var str0 = "";                      // The value is "", the typeof is "string" 
+        var str1 = "ABC";
+        //---------------------------------------------------------------------------------
+
+        /* Array */
+        var arr0 = [];                      //array empty
+        var arr1 = [0, 1, 2];               //with init values
+        var arr2 = [0, "1", "2", 1.1];      //muti type
+        
+        var arr3 = [];
+        console.log("ค่าใน arr3: ");
+        console.log(arr3);
+        // loop เพื่อเพิ่มข้อมูลลงใน array โดยผ่านฟังก์ชัน push()
+        for(var i = 0; i < 10; ++i){
+            arr3.push(i);            
+        }
+        console.log("ค่าใน arr3 เมื่อเพิ่มข้อมูลลงใน array: ");
+        console.log(arr3);
+        
+        // arr3 เมื่อกำหนดให้ arr3[1] เป็นคำว่า "OK"
+        arr3[1]="OK";
+        console.log("ค่าใน arr3[1] เมื่อเปลี่ยนเป็นคำว่า 'OK': ");
+        console.log(arr3[1]);
+        console.log("ค่าใน arr3 ใหม่: ");
+        console.log(arr3);
+        //---------------------------------------------------------------------------------
+
+        /* Object */
+        // Javascript: key-value
+        var obj0 = {};                              //object empty
+        console.log("ค่าใน obj0: ");
+        console.log(obj0);
+
+        //รูปแบบการเขียนใช้ key: value 
+        var obj1 = {"name":"01", "lastname":"02"};   //with init values
+        console.log("ค่าใน obj1: ");
+        console.log(obj1);
+         
+        var obj2 = {"name":"AAA", "age":10.5};       //เลียนแบบ arr2 -> muti type
+        console.log("ค่าใน obj2: ");
+        console.log(obj2);
+
+        var obj3 = {"name": "AAA", "age": 10.5, "tickets":["Q","R","S"]};
+        console.log("ค่าใน obj3: ");
+        console.log(obj3);
+        
+
+        // @Add data to object 1
+        var obj4 = {};
+        // เพิ่มข้อมูล key ชื่อ "name" = "BBBB" และ key ชื่อ "age" = 20
+        obj4.name = "BBBB";
+        obj4.age = 20;
+        console.log("ค่าใน obj4: ");
+        console.log(obj4);
+
+
+        // @Add data to object 2
+        var obj5 = {};
+        // loop เพื่อเพิ่มข้อมูลลงใน object
+        for(var i = 0; i < 10; ++i){
+            obj5["a"+ i] = i*2;
+        }
+        console.log("ค่าใน obj5: ");
+        console.log(obj5);
+        
+        // รูปแบบการเขียนระบุ method ของ object 
+        // แบบที่ 1
+        console.log("ค่าใน obj5 แบบ obj5["+'"a1"'+"]");
+        console.log(obj5["a1"]);
+        // แบบที่ 2
+        console.log("ค่าใน obj5 แบบ obj5.a1");
+        console.log(obj5.a1);
+        
+        // เพิ่ม key ใหม่
+        obj5.name = "aa";
+        console.log("ค่าใน obj5 ที่ key ชื่อ name : ");
+        console.log(obj5.name);
+        
+        // เปลี่ยนค่าใน key ที่กำหนด
+        obj5["name"] = "xxx";
+        console.log("ค่าใน obj5 ที่เปลี่ยนค่าใน key ชื่อ name : ");
+        console.log(obj5.name);
+
+
+        // @Add data to obj 3
+        // สมาชิกตัวที่1 ของอ็อบเจกต์ obj6 มีชื่อคุณสมบัติว่า name และมีค่าข้อมูลเป็นค่าสตริง "AAA"
+        // สมาชิกตัวที่2 ใช้ชื่อคุณสมบัติว่า age และมีค่าข้อมูลเป็นตัวเลข 10.5
+        // สมาชิกตัวที่3 ใช้ชื่อคุณสมบัติว่า tickets ซึ่งกำหนดให้มีค่าเป็นผลลัพธ์ของอ็อบเจกต์ สมาชิกตัวที่1 ใช้ชื่อคุณสมบัติว่า s1 และมีค่าข้อมูลเป็นตัวเลข 1
+        //                                                                  สมาชิกตัวที่2 ใช้ชื่อคุณสมบัติว่า s2 และมีค่าข้อมูลเป็นตัวเลข 2
+        var obj6 = {"name": "AAA", "age": 10.5 ,"tickets":{"s1": 1, "s2": 2}};
+        console.log("ค่าใน obj6: ");
+        console.log(obj6);
+
+        // สมาชิกตัวที่1 ของอ็อบเจกต์ obj7 มีชื่อคุณสมบัติว่า user และมีค่าข้อมูลเป็นค่าสตริง "ABC"
+        // สมาชิกตัวที่2 ใช้ชื่อคุณสมบัติว่า talk ซึ่งกำหนดให้มีค่าเป็นผลลัพธ์ของฟังก์ชัน console.log("hello");
+        var obj7 = {"user": "ABC", "talk": function(){console.log("hello"); }};
+        console.log("ค่าใน obj7: ");
+        console.log(obj7.talk);
+        
+        // การเรียกใช้ฟังก์ชัน talk ที่อยู่ใน obj7
+        console.log("เรียกใช้ฟังก์ชัน talk ที่อยู่ใน obj7: ");
+        // รูปแบบ 1
+        console.log("รูปแบบ 1 obj7.talk();");
+        obj7.talk();
+        // รูปแบบ 2
+        console.log("รูปแบบ 2 obj7["+'"talk"'+"]();");
+        obj7["talk"]();
+        
+
+        // ตัวอย่างการลบ member ที่ระบุ Key
+        var obj_del = {"name": "AAA", "age": 10.5 ,"tickets":{"s1": 1, "s2": 2}};
+        console.log("ค่าใน obj_del: ");
+        console.log(obj_del);
+
+        console.log("ลบสมาชิกชื่อ 'name' ทิ้ง:");
+        delete obj_del.name;
+        console.log(obj_del);
+
+        console.log("ลบสมาชิกชื่อ 'tickets' ทิ้ง:");
+        delete obj_del.tickets;
+        console.log(obj_del);
+        
+
+        // ตัวอย่างการลบ member แบบทั้้งหมด
+        var obj_del2 = {};
+        for(var i = 0; i < 5; ++i){
+            obj_del2["a"+ i] = i*2;
+        }
+        
+        console.log("ค่าใน objobj_del2: ");
+        console.log(obj_del2);
+
+        console.log("ค่าใน objobj_del2 ใน loop: ");
+        for(var i = 0; i < 5; ++i){
+            console.log(["ลบ "+'a'+ i +":"] + obj_del2["a"+ i]);
+            delete obj_del2["a"+ i];
+            console.log(obj_del2);
+        }
+
+        console.log("ค่าใน objobj_del2 ใหม่: ");
+        console.log(obj_del2);  
+    </script>
+
+</html>
