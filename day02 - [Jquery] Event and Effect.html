@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Day 2</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <style>
+            .textbox_style{
+                background-color: cornflowerblue; 
+                width: 100px; 
+                height: 100px; 
+                font-size: 200%; 
+                text-align: center}
+
+            .symbol_style{
+                width: 100px; 
+                height: 100px; 
+                font-size: 200%; 
+                text-align: center
+            }
+         </style>
+    </head>
+
+    <body>
+        <div>
+        <!--Text Box แสดงตัวเลข-->
+        <input id="txtNumber" type="text" name="Number" value="0" class="textbox_style">
+        <!--เครื่องหมายบวก-->
+        <button id="add" class="symbol_style">+</button>
+        <!--เครื่องหมายลบ-->
+        <button id="sub" class="symbol_style">-</button>
+        </div> 
+    </body>
+
+    <script src="js\jquery-3.2.1.js"></script>
+    <script>
+
+        /*ฟังก์ชันการบวก*/
+        $('#add').click(function () {
+            var num = $("#txtNumber").val();
+            var result = parseInt(num) + 1;
+            $("#txtNumber").val(result);
+            if(result > 10){
+                $("#txtNumber").val(11);
+                $("#txtNumber").hide()
+                //$("#txtNumber").css('visibility', 'hidden')
+            }
+        });
+
+        /*ฟังก์ชันการลบ*/
+        $('#sub').click(function () {
+            var num = $("#txtNumber").val();
+            var result = parseInt(num) - 1;
+           $("#txtNumber").val(result);
+            if(result < 11){
+                $("#txtNumber").show()
+                //$("#txtNumber").css('visibility', 'visible')
+            }
+        });
+    
+    </script>
+    <!--
+        //คำสั่ง Event อื่นๆ ที่น่าสนใจ
+        อ้างอิง: http://www.thaicreate.com/jquery/jquery-events.html
+        $(document).ready(function)     มีมีการโหลดหน้าเว็บเพจเสร็จสิ้น ถ้ามีการใส่คำสั่ง JavaScript ที่ไม่ผ่าน Events จะทำงานทันทีหลังจากโหลดหน้าเว็บเพจเรียบร้อย 
+                                        เช่น $("#txt3").hide();
+        $(selector).click(function)     เมื่อมีการคลิกยัง Selectors ที่กำหนดขึ้น
+        $(selector).dblclick(function)  เมื่อมีการดับเบิ้ลคลิกยัง Selectors ที่กำหนดขึ้น
+        $(selector).focus(function)     เมื่อมีการคลิก focus() ยัง Selectors ที่กำหนดขึ้น เช่น textbox
+        $(selector).mouseover(function) เมื่อมีเมาส์เลื่อนผ่าน Selectors ที่กำหนดขึ้น
+        $(selector).error(function)     เมื่อมีการ error จาก Selectors ที่กำหนดขึ้น เช่น Tags img โหลดภาพไม่สมบูรณ์
+        $(selector).focusout (function) เมื่อมีการย้ายตำแหน่ง focus() ออกจาก Selectors ที่กำหนดขึ้น เช่น เลื่อน focus() ออกจาก textbox
+        $(selector).keydown(function)   เมื่อมีการกดปุ่มลงในทันทีไปยัง Selectors ที่กำหนดขึ้น
+        $(selector).keypress(function)  เมื่อมีการกดปุ่มลงจนสุด ไปยัง Selectors ที่กำหนดขึ้น
+        $(selector).keyup(function)     เมื่อมีการปล่อยปุ่ม ที่ได้กดลงใน Selectors ที่กำหนดขึ้น
+        ....................................................................................................................
+        
+        //jQuery and Effects 
+        อ้างอิง: http://www.thaicreate.com/jquery/jquery-effects.html
+        $("selector").show();           แสดง Selectors ของ element ที่กำลังอ้างถึง
+        $("selector").hide();           ซ่อน Selectors ของ element ที่กำลังอ้างถึง
+        $("selector").toggle();         ซ่อนและแสดง Selectors ของ element ที่กำลังอ้างถึง โดยทำงานสลับกันไปมา
+        $("selector").slideUp();        เลือน Selectors ของ element ที่กำลังอ้างถึง โดยเลื่อนขึ้นด้านบน
+        $("selector").slideDown();      เลือน Selectors ของ element ที่กำลังอ้างถึง โดยเลื่อนขึ้นลงล่างเหมือนเดิม
+        $("selector").slideToggle();    เลือน Selectors ของ element ที่กำลังอ้างถึง โดยทำงานสลับกันไปมา เลือนขึ้น-เลือนลง
+        ....................................................................................................................
+
+        //คำสั่ง Event อื่น ๆ ที่น่าสนใจ
+        อ้างอิง: http://www.thaicreate.com/jquery/jquery-effects.html
+        $(selector).fadeIn()            fade element ค่อย ๆ แสดงผลจางลง
+        $(selector).fadeOut()           fade element ค่อย ๆ แสดงผลชัดขึ้น
+        $(selector).fadeTo()            fade element ไปยังสิ่งที่ต้องการ
+        $(selector).animate()           fade element ไปยังตำแหน่งที่ต้องการ
+        $(selector).fadeToggle()        สลับการะหว่าง faceIn และ fadeOut
+        $(selector).stop()              หยุดการทำงานที่กำลังทำงานอยู่ในขณะนั้น
+        ....................................................................................................................
+    -->
+</html>
