@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Day 2</title>
+         <style>
+             div{background-color:red }
+             span{background-color:yellow }
+            .myspan_style1{background-color:chartreuse; color:blue }
+            .myspan_style2{background-color:orange; color:white}
+         </style>
+    </head>
+
+    <body>
+        <!-- Selector
+            - All Selector                          //ทั้งหมด
+                ("*")                                      
+            - Element Selector                      //ทุกที่มีชื่อแท็กที่ระบุ
+                ("element")                            
+            - ID Selector                           //id ที่ระบุ
+                ("#id")                                     
+            - Class Selector                        //ทุกคลาสที่ระบุ
+                (".class")                               
+            - Multiple Selector                     //ผลลัพธ์รวมทุก selector ที่ระบุ
+                ("selector1, selector2, selectorN")   
+            - Descendant Selector                   //ทั้งหมดที่เกี่ยวข้องกับตัวที่กำหนด
+                ("ancestor descendant")             
+        -->
+
+        <!--การเรียกใช้งาน Selectors อื่นๆ
+            อ้างอิง: http://www.thaicreate.com/jquery/jquery-selectors-element.html
+            
+            $('div#mydiv.myclass')          อ้างถึง div ชื่อ id="mydiv" และ css="myclass"
+            $('div#mydiv1 , div#mydiv1')    อ้างถึง div ชื่อ id="mydiv1" , และ div ชื่อ id="mydiv2" (กรณีที่อ้างถึงหลายตัว)
+            $('div#mydiv1 , p#myp1')        อ้างถึง div ชื่อ id="mydiv1" , และ p ชื่อ id="myp1" (กรณีที่อ้างถึงหลายตัว)
+            $('div.myclass')                อ้างถึง div ที่ css="myclass"
+            $('div#imydiv1:first")          อ้างถึง div ที่ id="mydiv1" ที่อยู่ลำดับแรก (ในกรณีที่มี id="mydiv1" หลายตัว)
+        -->    
+
+        <!--ตัวอย่างข้อความใน div-->
+        <h1>div</h1>
+        <div id="div1" class="myspan_style1">12345</div>
+        <div id="div2" class="myspan_style2">67890</div>
+        <div id="div3" class="myspan_style1">11111</div>
+        <div id="div4" >22222</div>
+        
+        <h1>span</h1>
+        <span id="span1" class="myspan_style1">AAAAA</span> <br>
+        <span id="span2" class="myspan_style2">BBBBB</span>
+    
+    </body>
+   
+    <script src="js\jquery-3.2.1.js"></script> 
+    <script>
+
+        /* ถ้าใช้ div หรือ span */
+            //เฉพาะที่มี div จะเปลี่ยนข้อความเป็น "ABCDE" และพื้นหลังเป็นสีชมพู
+            //แต่สีของตัวหนังสือจะยังกำหนดตาม style ของแต่ละตัวอยู่
+            //$("div").text("ABCDE");
+            //$("div").css("background-color","pink");
+            //----------------------------------------------------
+
+            //เฉพาะที่มี span จะเปลี่ยนข้อความเป็น "zzzzz" และพื้นหลังเป็นสีฟ้า
+            //แต่สีของตัวหนังสือจะยังกำหนดตาม style ของแต่ละตัวอยู่
+            //$("span").text("zzzzz");
+            //$("span").css("background-color","lightblue");
+            //----------------------------------------------------
+
+        /* ถ้าใช้ id */
+            //เฉพาะที่มี div1 จะเปลี่ยนข้อความเป็น "ABCDE" และพื้นหลังเป็นสีชมพู
+            //แต่สีของตัวหนังสือจะยังกำหนดตาม style อยู่
+            //$("#div1").text("ABCDE");
+            //$("#div1").css("background-color","pink");
+            //----------------------------------------------------
+
+        /* ถ้าใช้ class */
+            //เฉพาะที่มี myspan_style1 จะเปลี่ยนข้อความเป็น "SSSSSS" และพื้นหลังเป็นสีม่วง
+            //แต่สีของตัวหนังสือจะยังกำหนดตาม style อยู่
+            //$(".myspan_style1").text("SSSSSS");
+            //(".myspan_style1").css("background-color","violet");
+            //----------------------------------------------------
+
+        /* ถ้าใช้ div หรือ span ร่วมกับ class */
+            //เฉพาะที่มี div และใช้ myspan_style1 จะเปลี่ยนข้อความเป็น "55555" และพื้นหลังเป็นสีดำ
+            //แต่สีของตัวหนังสือจะยังกำหนดตาม style อยู่
+            //$("div.myspan_style1").text("55555");
+            //$("div.myspan_style1").css("background-color","black");
+            
+            //เฉพาะที่มี span และใช้ myspan_style1 จะเปลี่ยนข้อความเป็น "666666" และพื้นหลังเป็นสีฟ้า
+            //แต่สีของตัวหนังสือจะยังกำหนดตาม style อยู่
+            //$("span.myspan_style1").text("66666");
+            //$("span.myspan_style1").css("background-color","lightblue");
+
+        </script>
+
+</html>
