@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Day 1</title>
+    </head>
+
+    <body>
+        <!-- div กำหนดเนื้อหาให้อยู่ภายในบล็อคเดียวกัน โดยจะขึ้นบรรทัดใหม่ให้โดยอัตโนมัติ-->
+        <div id="mydiv1">12345</div>
+        <div id="mydiv2">67890</div>
+
+        <div>11111
+            <span id="myspan">Hello!</span>
+            .....
+        </div>
+    </body>
+
+    <script>
+    // การสร้างฟังก์ชัน
+        //1.
+        function A(){ // ฟังก์ชันที่ไม่มี parameter
+            /*console.log() จะช่วยในการ debug ข้อมูล โดยเราจะสามารถดูได้โดยการกด F12*/
+            console.log("step 1x");
+            //เปลี่ยนชื่อ title
+            document.title = "1234";
+            
+            console.log("step 2x");
+            //เปลี่ยนค่าที่ id = mydiv1 เป็นข้อความ "AAAAA"
+            document.getElementById("mydiv1").innerText = "AAAAA";      // propoty set
+            console.log(document.getElementById("mydiv1").innerText);   // propoty get
+            
+            console.log("step 3x");
+            //เปลี่ยนค่าที่ id = mydiv2 เป็นข้อความ "BBBBB"
+            document.getElementById("mydiv2").innerText = "BBBBB";
+
+            console.log("step 4x");
+            //เรียกใช้ฟังก์ชัน B
+            B(10,"xxxx");
+        }
+
+        //2.
+        function B(x,y){ // ฟังก์ชันที่มี parameter 2 ตัว
+            console.log(x+y);
+        }
+
+        //3.
+        function C(z){ // ฟังก์ชันที่มี parameter 2 ตัว และมีการ return ค่า
+            return z+1;
+        }
+
+        //---------------------------------
+        /*
+        function B1(x:number,y:number){
+            console.log(x+y);
+        }
+        */        
+        //---------------------------------
+
+
+    //การเรียกใช้ฟังก์ชัน
+        //function Invocation
+        //method 1: เรียกใช้ได้เลย
+        //A();
+        
+        //method 2: สร้างตัวแปรมาอ้างอิงถึงฟังก์ชัน โดยเวลาเรียกใช้จะมีคุณสมบัติเดียวกับฟังก์ชันที่อ้างอิงถึง
+        var myfunc = A;
+        myfunc();
+        
+        //others 1: สร้างตัวแปรมารัค่าของฟังก์ชันที่สร้างขึ้นมาเรียกใช้ครั้งเดียว
+        var myfunc = function(){
+            console.log("dddddd");
+        };
+        myfunc();
+        
+       //others 2: ฟังก์ชันที่สร้างขึ้นมาเรียกใช้ครั้งเดียว
+       (function(){
+           console.log("eee");       
+        } )();
+
+        //ฟังก์ชันที่สร้างขึ้นมาเรียกใช้ครั้งเดียวที่มี parameter 2 ตัว
+        (function(a,b){ 
+           console.log(a+","+ b+"sss");       
+        } )(10,20);
+
+    </script>
+        
+</html>
