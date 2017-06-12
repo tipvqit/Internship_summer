@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <button id="add" style="cursor: pointer">+</button>
+    </body>
+
+    <script src="js\jquery-3.2.1.js"></script>
+    <script>
+        $("#add").click(function(){
+            console.log("Click");
+            //
+            /*
+                $.get("day5.php",function(data_, status_, jqxhr_){ //ส่งสำเร็จ แจ้งกลับมา
+                    console.log("sssssss");
+                    console.log(data_);
+                });
+            */
+        
+            //get จะเหมาะกับการสื่อสารที่ต้องการส่งข้อมูลแบบ Query String และมีอัตราการส่งข้อมูลน้อยกว่าแบบ post
+            //รูปแบบการอ่านค่าตัวแปรจาก URL ที่ตามด้วยเครื่องหมาย ?var=value 
+            //รูปแบบนี้เป็นการส่งมาจากลิ้งค์ หรือมาจาก Form ภายใต้ Method get
+            $.get("day05%20-%20%5bPHP%5d%20GET%20and%20POST.php?uname=Z&role=admin",function(data_, status_, jqxhr_){ //ส่งสำเร็จ แจ้งกลับมา
+                console.log("xxxxxxx");
+                console.log(data_);
+            });
+            
+            //post จะเหมาะกับสารสื่อสารแบบต้องการความปลอดภัย และส่งข้อมูลในปริมาณมาก
+            var u1 = {"name":"Z","role":"Admin"};
+            var u1_str = JSON.stringify(u1); //JSON.stringify ใช้สำหรับแปลง JSON Object เป็น JSON String
+            
+            $.post("day05%20-%20%5bPHP%5d%20GET%20and%20POST.php?uname=Z&role=admin",
+            u1_str,
+            function(data_, status_, jqxhr_){ //on success
+                console.log("yyy");
+                console.log(data_);
+                var re_u =JSON.parse(data_); //JSON.parse ใช้สำหรับแปลง JSON String เป็น JSON Object 
+                console.log(re_u);
+             });
+        })
+   
+    </script>
+</html>
