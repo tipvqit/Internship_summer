@@ -1,0 +1,12 @@
+﻿เนื้อหา
+- Native vs Cross platform
+	Native platform ต้องเขียนโค้ดแยกกัน
+	ถ้าเป็น iOS ก็จะสามารถนำไปเปิดใช้งานได้กับอุปกรณ์ iOS เท่านั้น
+	ถ้าเป็น Android  ก็จะสามารถนำไปเปิดใช้งานได้กับอุปกรณ์ Android  เท่านั้น
+	Cross platform เขียนโค้ดครั้งเดียว สามารถนำไปเปิดใช้งานได้หลายอุปกรณ์ ex. iOS, Android 
+- Setup Android Studio & SDK & Emulator
+- Structure Android Code
+- Hello word & Basic control
+- gradle config
+- Layout & View
+- Log&Toast

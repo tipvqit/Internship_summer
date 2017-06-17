@@ -1,0 +1,23 @@
+﻿เนื้อหา
+- Fragmentation basic concept
+	ความหลากหลาย browsers, หน้าจอที่ความละเอียดต่างกัน, มือถือ /แท็บเล็ท, หน้าจอแนวตั้ง/แนวนอน
+	แก้ไข Fragmentation โดย responsive  เขียนหลาย layout
+- DP&SP
+	dp หน่วยของความละเอียดของหน้าจอ 
+	ex. 10 dp แล้วแปลงเป็น pixel คูณ (0.75, 1.0, 2.0, 3.0, 4.0)
+	sp ใช้กับฟอนต์ดีกว่า
+- Drawable
+	เก็บรูปภาพที่มีขนาดต่างกัน
+	สร้าง res>new resource file>type= drawable>available =density
+- mipmap
+	ใส่ไอคอน ที่ไม่ต้องเปลี่ยนแปลงขนาด 
+- Value
+	เก็บค่าตัวแปล config
+	Refactor->Extract->style
+- Qualifier
+	คือ รูปแบบการแก้ปัญหาของ Fragment
+	ex. การกำหนด Drawable ที่ต่างกัน xhdpi , xxxhdpi
+- 3rd Party Library
+- Inclue&Style&Theme
+- Activity& Android Life cycle
+- debug
